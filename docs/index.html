@@ -8,13 +8,21 @@
 <div class="game">
     <div class="game__ui" id="main">
         <div class="users">
-            <div class="users__user-card snackbar show" v-for="user in users">
+            <div class="snackbar shares show">
+                <div class="name">GDCN inc.</div>
+                <div class="money">{{cost}}</div>
+            </div>
+            <div class="space"> </div>
+            <div class="users__user-card snackbar show" v-for="user in users" v-bind:class="{ me: userName == user.name }">
                 <div class="user-block__value name">{{user.name}}</div>
                 <div class="user-block__value money">{{user.money}}</div>
                 <div class="user-block__value papers">{{user.papers}}</div>
             </div>
         </div>
-        <div class="buttons snackbar show"></div>
+        <div class="buttons snackbar show shop-buttons__wrapper">
+            <button id="sell-button" class="common-styles__button shop-buttons__sell">SELL</button>
+            <button id="buy-button" class="common-styles__button shop-buttons__buy">BUY</button>
+        </div>
     </div>
 
     <div class="game__chart">

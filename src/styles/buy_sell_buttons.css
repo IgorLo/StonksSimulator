@@ -1,0 +1,35 @@
+.shop-buttons__wrapper > button {
+    box-shadow: none;
+    border-radius: 0;
+    width: 50%;
+    margin: 0;
+    color: azure;
+}
+
+.shop-buttons__wrapper > button:hover {
+    box-shadow: none;
+}
+
+.shop-buttons__wrapper > button > span {
+    font-size: 0.75em;
+    padding: 8px 0;
+}
+
+.shop-buttons__sell {
+    background: #5d3834;
+}
+
+.shop-buttons__buy {
+    border-left: 1px solid #1f1f28;
+    background: #35542d;
+}
+
+.shop-buttons__buy:hover,
+.shop-buttons__sell:hover {
+    background: #3b4c53;
+}
+
+.shop-buttons__buy:focus,
+.shop-buttons__sell:focus {
+    background: #3f5c67;
+}
