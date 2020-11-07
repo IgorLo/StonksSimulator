@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MoneyGame</title>
+</head>
+<body>
+<div class="game">
+    <div class="game__ui" id="main">
+        <div class="users">
+            <div class="users__user-card snackbar show" v-for="user in users">
+                <div class="user-block__value name">{{user.name}}</div>
+                <div class="user-block__value money">{{user.money}}</div>
+                <div class="user-block__value papers">{{user.papers}}</div>
+            </div>
+        </div>
+        <div class="buttons snackbar show"></div>
+    </div>
+
+    <div class="game__chart">
+        <canvas id="chart">
+
+        </canvas>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
