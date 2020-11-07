@@ -1,3 +1,4 @@
+import 'hover.css/css/hover-min.css'
 import './styles/index.css'
 import './styles/snackbar.css'
 import "./utils"
@@ -7,16 +8,16 @@ import Chart from 'chart.js'
 import {Line} from 'vue-chartjs'
 import Vue from 'vue'
 import Server from "./Server";
-import {makeid} from "./utils";
+import {generateUsername, makeid} from "./utils";
 
 
-let CHART_WIDTH = 60;
+let CHART_WIDTH = 1000;
 
 let app = new Vue({
     el: '#main',
     data: {
         cost: 0,
-        userName: makeid(6),
+        userName: generateUsername(2),
         users: [
             {
                 name: 'igorlo',
@@ -72,21 +73,25 @@ function addCost(cost) {
     // lineChart.options.scales.yAxes.ticks.min = 5
     // lineChart.options.scales.yAxes.ticks.max = 15
     if (lineChart.data.datasets[0].data.length > CHART_WIDTH * 0.9) {
-        lineChart.data.datasets[0].data = lineChart.data.datasets[0].data.slice(Math.floor(CHART_WIDTH * 0.7))
+        lineChart.data.datasets[0].data = lineChart.data.datasets[0].data.slice(Math.floor(CHART_WIDTH * 0.4))
     }
     lineChart.update();
 }
 
 function updateUsers(users) {
     if (users.name === undefined) {
-        users.sort((a, b) => {
+        app.users = users
+        app.users.sort((a, b) => {
             if (a.name === app.userName){
-                return 1
+                return -1
             } else {
-                return a.money >= b.money
+                if (a.money >= b.money){
+                    return -1
+                } else {
+                    return 1
+                }
             }
         });
-        app.users = users
     } else {
         //    TODO single user info
         server.sendAction("-1");
