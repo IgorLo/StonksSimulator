@@ -79,7 +79,14 @@ function addCost(cost) {
 
 function updateUsers(users) {
     if (users.name === undefined) {
-        app.users = users;
+        users.sort((a, b) => {
+            if (a.name === app.userName){
+                return 1
+            } else {
+                return a.money >= b.money
+            }
+        });
+        app.users = users
     } else {
         //    TODO single user info
         server.sendAction("-1");

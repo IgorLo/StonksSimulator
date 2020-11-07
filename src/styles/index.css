@@ -41,6 +41,8 @@ body, html {
     flex-grow: 1;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    display: flex;
+    flex-direction: column;
 }
 .users::-webkit-scrollbar {
     display: none;
